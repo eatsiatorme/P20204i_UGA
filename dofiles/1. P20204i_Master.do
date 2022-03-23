@@ -36,7 +36,7 @@ clear all
 // General Globals
 global ONEDRIVE "C:\Users\/`c(username)'\C4ED\"
 
-if "`c(username)'" == "NathanSivewright" {
+if "`c(username)'" == "DennisOundo" {
 capture mkdir "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\" 
 global local_path "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\"
 }
