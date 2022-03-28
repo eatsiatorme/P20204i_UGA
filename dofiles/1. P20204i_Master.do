@@ -60,6 +60,10 @@ global cohort "C2"
 global tool "Application Form"
 
 // Data Management Paths
+if "`c(username)'" == "DennisOundo" {
+	global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
+}
+
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB\P20204i_UGA\dofiles"
 global encrypted_drive "H"
 global encrypted_path "$encrypted_drive:"
