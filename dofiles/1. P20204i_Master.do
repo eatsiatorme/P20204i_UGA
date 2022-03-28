@@ -114,6 +114,7 @@ cd "$dofiles"
 do "1.5. ${proj}_${round}_Data_Progress.do"
 cd "$dofiles"
 do "2.0. ${proj}_${round}_Encryption.do"
+this for testing
 
 */
 di "Ran Successfully"
