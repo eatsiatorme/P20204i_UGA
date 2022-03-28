@@ -48,13 +48,13 @@ foreach file in `files'{
 	capture erase "`fileandpathtodelete'"
 }
 
-/*
+
 ************************
 ** 4. SurveyCTO do-file 
 ************************
-cd "$scto_download"
+cd "$local_path"
 	do import_rise_baseline_form.do 
-*/
+
 **************************
  ** 5. Export .dta file to "export" folder
 **************************
