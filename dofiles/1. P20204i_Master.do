@@ -105,10 +105,9 @@ cd "$dofiles"
 ****** 1. DATA PROCESSING *********
 *****************************************
 *do "1.0. ${proj}_${round}_Decryption.do"
+
 cd "$dofiles"
-do "1.1. ${proj}_${round}_import_rise_baseline_form.do "
-cd "$dofiles"
-do "1.2. ${proj}_${round}_Export.do"
+do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
 
 /*
