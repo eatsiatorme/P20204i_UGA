@@ -39,11 +39,13 @@ global ONEDRIVE "C:\Users\/`c(username)'\C4ED\"
 if "`c(username)'" == "DennisOundo" {
 capture mkdir "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\" 
 global local_path "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\"
+global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 }
 
 if "`c(username)'" == "ElikplimAtsiatorme"{
 capture mkdir "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\" 
 global local_path "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\"
+global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB\P20204i_UGA\dofiles"
 }
 
 global version = 0
@@ -60,11 +62,9 @@ global cohort "C2"
 global tool "Application Form"
 
 // Data Management Paths
-if "`c(username)'" == "DennisOundo" {
-	global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
-}
 
-global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB\P20204i_UGA\dofiles"
+
+
 global encrypted_drive "H"
 global encrypted_path "$encrypted_drive:"
 global project_folder "$ONEDRIVE\$folder\02_Analysis\" 
