@@ -37,7 +37,7 @@ clear all
 global ONEDRIVE "C:\Users\/`c(username)'\C4ED\"
 
 if "`c(username)'" == "DennisOundo" {
-capture mkdir "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\" 
+capture mkdir "C:\Users\Personal\OneDrive - C4ED\Desktop\P20204i_Baseline_Local" 
 global local_path "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\"
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 }
