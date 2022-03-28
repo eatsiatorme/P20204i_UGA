@@ -95,7 +95,7 @@ cd "$dofiles"
 ** ADO-FILES REQUIRED
 *ssc install strgroup
 
-
+/* 
 *****************************************
 ****** 1. DATA PROCESSING *********
 *****************************************
@@ -114,6 +114,8 @@ cd "$dofiles"
 do "1.5. ${proj}_${round}_Data_Progress.do"
 cd "$dofiles"
 do "2.0. ${proj}_${round}_Encryption.do"
+
+*/
 di "Ran Successfully"
 
 n: di "${proj}_${tool}_Master.do Completed"
