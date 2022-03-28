@@ -60,10 +60,11 @@ global cohort "C2"
 global tool "Application Form"
 
 // Data Management Paths
+global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB\P20204i_UGA\dofiles"
 global encrypted_drive "H"
 global encrypted_path "$encrypted_drive:"
 global project_folder "$ONEDRIVE\$folder\02_Analysis\" 
-global dofiles "$ONEDRIVE\$folder\02_Analysis\01_DoFiles\Field Data Management/$round\/$cohort\/$tool" 
+*global dofiles "$ONEDRIVE\$folder\02_Analysis\01_DoFiles\Field Data Management/$round\/$cohort\/$tool" 
 global exported "$encrypted_path\Baseline\C2\Application Form\exported"
 global corrections "$encrypted_path\Baseline\C2\Application Form\corrections"
 global cleaning "$encrypted_path\Baseline\C2\Application Form\cleaning"
@@ -101,8 +102,13 @@ cd "$dofiles"
 *****************************************
 *do "1.0. ${proj}_${round}_Decryption.do"
 cd "$dofiles"
-do "1.1. ${proj}_${round}_Export.do"
+do "1.1. ${proj}_${round}_import_rise_baseline_form.do "
 cd "$dofiles"
+do "1.2. ${proj}_${round}_Export.do"
+cd "$dofiles"
+
+/*
+
 do "1.2. ${proj}_${round}_Cleaning.do"
 cd "$dofiles"
 do "1.3. ${proj}_${round}_Corrections.do"
@@ -114,7 +120,7 @@ cd "$dofiles"
 do "1.5. ${proj}_${round}_Data_Progress.do"
 cd "$dofiles"
 *do "2.0. ${proj}_${round}_Encryption.do"
-
+*/
 
 di "Ran Successfully"
 
