@@ -44,7 +44,7 @@ global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 
 if "`c(username)'" == "ElikplimAtsiatorme"{
 capture mkdir "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\" 
-global local_path "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\"
+global local_path "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local"
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB\P20204i_UGA\dofiles"
 }
 
@@ -84,7 +84,7 @@ global share_CBR "$ONEDRIVE\$folder\04_Field Work\Share with CBR"
 global share_ZMB "$ONEDRIVE\$folder\04_Field Work\Share with Zambia"
 global location "$encrypted_drive:\"
 
-global media_path "$scto_download\media" // Enter media path on local
+global media_path "$local_path\media" // Enter media path on local
 global main_data_path "$cleaning\/$main_table.dta" // Enter main dataset path
 
 
@@ -109,10 +109,8 @@ cd "$dofiles"
 cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
-
-/*
-
 do "1.2. ${proj}_${round}_Cleaning.do"
+/* 
 cd "$dofiles"
 do "1.3. ${proj}_${round}_Corrections.do"
 cd "$dofiles"
