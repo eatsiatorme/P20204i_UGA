@@ -110,20 +110,12 @@ cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
 do "1.2. ${proj}_${round}_Cleaning.do"
-
 cd "$dofiles"
 do "1.3. ${proj}_${round}_Corrections.do"
-
 cd "$dofiles"
 do "1.4. ${proj}_${round}_Interview.do"
 cd "$dofiles"
-<<<<<<< Updated upstream
-/*
-/do "1.45. ${proj}_${round}_Randomization_Ready.do"
-=======
-
 do "1.45. ${proj}_${round}_Randomization_Ready.do"
->>>>>>> Stashed changes
 cd "$dofiles"
 do "1.5. ${proj}_${round}_Data_Progress.do"
 cd "$dofiles"
