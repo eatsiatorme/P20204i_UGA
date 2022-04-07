@@ -304,6 +304,7 @@ replace form_number=244 if key=="uuid:1439832c-a834-4f99-a0eb-7c32d68b8c0b"
 replace form_number=423 if key=="uuid:444cdc33-4e1d-4008-8ead-660fbe060ce6"
 
 *replace form_number=-999 if key=="uuid:82c76e6f-c823-49f5-bb04-adeeffc00c24" // PLACEHOLDER FORM NUMBER UNTIL WE CAN FIGURE OUT
+*/
 ********************************************************************************
 * CREATING BINARY VARIABLE FOR NO PREFERENCE INDICATED
 ********************************************************************************
@@ -312,6 +313,7 @@ label def l_nopref 0 "Preference Indicated" 1 "No Preference Indicated"
 label val no_pref l_nopref
 label var no_pref "Preference Indicated in Trade"
 
+/*
 replace no_pref=1 if id_number=="PW0AKM"
 replace no_pref=1 if id_number=="JFLDOT"
 replace no_pref=1 if id_number=="25Q703"

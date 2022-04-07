@@ -76,7 +76,7 @@ foreach var of varlist `r(varlist)' {
 * FIXING AGES
 ********************************************************************************
 * Done by checking against script and confirming above 18 if less than or equal to 19 years old
-
+replace above_18 = 1 if age>=19 & age!=.
 
 * Done by checking against script and confirming the age is missing 
 
@@ -111,7 +111,7 @@ format %td age_correct_dt
 replace q3 = age_correct_dt if age_correct_dt!=.
 
 
-gen age_current_date="16/11/2021" // Age calculated from 16th November
+gen age_current_date="07/04/2022" // Age calculated from 16th November
 gen age_correct_date_dt=date(age_current_date,"DMY",2025)
 format %td age_correct_date_dt
 
