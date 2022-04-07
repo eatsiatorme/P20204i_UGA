@@ -121,22 +121,22 @@ count if t1_`vti_`l'_str_l' ==`i'
 putexcel C${x}=`r(N)', nformat(number)
 count if t2_`vti_`l'_str_l'==`i'
 putexcel D${x}=`r(N)', nformat(number)
-count if t3_`vti_`l'_str_l'==`i'
-putexcel E${x}=`r(N)', nformat(number)
+*count if t3_`vti_`l'_str_l'==`i'
+*putexcel E${x}=`r(N)', nformat(number)
 
 count if t1_`vti_`l'_str_l' ==`i' & q2==1
 putexcel I${x}=`r(N)', nformat(number)
 count if t2_`vti_`l'_str_l'==`i' & q2==1
 putexcel J${x}=`r(N)', nformat(number)
-count if t3_`vti_`l'_str_l'==`i' & q2==1
-putexcel K${x}=`r(N)', nformat(number)
+*count if t3_`vti_`l'_str_l'==`i' & q2==1
+*putexcel K${x}=`r(N)', nformat(number)
 
 count if t1_`vti_`l'_str_l' ==`i' & q2==2
 putexcel O${x}=`r(N)', nformat(number)
 count if t2_`vti_`l'_str_l'==`i' & q2==2
 putexcel P${x}=`r(N)', nformat(number)
-count if t3_`vti_`l'_str_l'==`i' & q2==2
-putexcel Q${x}=`r(N)', nformat(number)
+*count if t3_`vti_`l'_str_l'==`i' & q2==2
+*putexcel Q${x}=`r(N)', nformat(number)
 
 }
 
