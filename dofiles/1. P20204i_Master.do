@@ -47,7 +47,7 @@ global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 if "`c(username)'" == "Personal" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
 	global ONEDRIVE "C:\Users\/Personal\C4ED\"
-	global dofiles "C:\Users\/Personal\Documents\GitHub\P20204i_UGA\dofiles"
+	global dofiles "C:\Users\Personal\OneDrive - C4ED\Documents\GitHub\P20204i_UGA\dofiles"
 }
 
 
