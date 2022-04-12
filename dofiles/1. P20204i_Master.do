@@ -43,7 +43,8 @@ global local_path "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\"
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 }
 */
-if "`c(username)'" == "DennisOundo" {
+
+if "`c(username)'" == "Users" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
 
 }
