@@ -44,7 +44,7 @@ global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 }
 */
 
-if "`c(username)'" == "Users" {
+if "`c(username)'" == "Personal" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
 
 }
