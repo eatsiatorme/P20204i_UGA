@@ -27,9 +27,8 @@ Then there are individual sheets for each of the VTIs with a table summary of th
 ********************************************************************************
 
 /*
->>>>>>> Stashed changes
 import delimited using "$data_entry_assign", varnames(1) clear // if changed to numeric - delete stringcols
-merge 1:1 vti form_number using "$cleaning\/$main_table.dta", keepusing(q1 cbr_2)
+cap merge 1:1 vti form_number using "$cleaning\/$main_table.dta", keepusing(q1 cbr_2)
 gen submission=(_merge==3)
 label def L_submission 0 "No Submission" 1 "Submitted"
 label val submission L_submission
@@ -49,11 +48,7 @@ keep if firm=="ZMB"
 drop firm
 export excel using "$share_ZMB/data_entry_progress.xlsx", firstrow(var) replace
 restore
-<<<<<<< Updated upstream
-
-=======
 */
-
 
 
 ********************************************************************************
