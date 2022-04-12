@@ -47,7 +47,7 @@ global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 if "`c(username)'" == "Personal" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
 	global ONEDRIVE "C:\Users\/Personal\C4ED\"
-
+	global dofiles "C:\Users\/Personal\Documents\GitHub\P20204i_UGA\dofiles"
 }
 
 
@@ -116,7 +116,7 @@ cd "$dofiles"
 *****************************************
 *do "1.0. ${proj}_${round}_Decryption.do"
 
-*cd "$dofiles"
+cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
 do "1.2. ${proj}_${round}_Cleaning.do"
