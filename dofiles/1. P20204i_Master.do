@@ -46,8 +46,12 @@ global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 
 if "`c(username)'" == "Personal" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
+	global ONEDRIVE "C:\Users\/Personal\C4ED\"
 
 }
+
+
+
 if "`c(username)'" == "ElikplimAtsiatorme"{
 capture mkdir "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\" 
 global local_path "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local"
