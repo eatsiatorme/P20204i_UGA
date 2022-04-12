@@ -116,7 +116,7 @@ cd "$dofiles"
 *****************************************
 *do "1.0. ${proj}_${round}_Decryption.do"
 
-cd "$dofiles"
+*cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
 do "1.2. ${proj}_${round}_Cleaning.do"
