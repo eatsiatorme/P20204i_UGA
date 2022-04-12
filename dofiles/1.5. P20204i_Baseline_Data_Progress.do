@@ -27,9 +27,8 @@ Then there are individual sheets for each of the VTIs with a table summary of th
 ********************************************************************************
 
 /*
->>>>>>> Stashed changes
 import delimited using "$data_entry_assign", varnames(1) clear // if changed to numeric - delete stringcols
-merge 1:1 vti form_number using "$cleaning\/$main_table.dta", keepusing(q1 cbr_2)
+cap merge 1:1 vti form_number using "$cleaning\/$main_table.dta", keepusing(q1 cbr_2)
 gen submission=(_merge==3)
 label def L_submission 0 "No Submission" 1 "Submitted"
 label val submission L_submission
@@ -49,11 +48,7 @@ keep if firm=="ZMB"
 drop firm
 export excel using "$share_ZMB/data_entry_progress.xlsx", firstrow(var) replace
 restore
-<<<<<<< Updated upstream
-
-=======
 */
-
 
 
 ********************************************************************************
@@ -121,22 +116,22 @@ count if t1_`vti_`l'_str_l' ==`i'
 putexcel C${x}=`r(N)', nformat(number)
 count if t2_`vti_`l'_str_l'==`i'
 putexcel D${x}=`r(N)', nformat(number)
-count if t3_`vti_`l'_str_l'==`i'
-putexcel E${x}=`r(N)', nformat(number)
+*count if t3_`vti_`l'_str_l'==`i'
+*putexcel E${x}=`r(N)', nformat(number)
 
 count if t1_`vti_`l'_str_l' ==`i' & q2==1
 putexcel I${x}=`r(N)', nformat(number)
 count if t2_`vti_`l'_str_l'==`i' & q2==1
 putexcel J${x}=`r(N)', nformat(number)
-count if t3_`vti_`l'_str_l'==`i' & q2==1
-putexcel K${x}=`r(N)', nformat(number)
+*count if t3_`vti_`l'_str_l'==`i' & q2==1
+*putexcel K${x}=`r(N)', nformat(number)
 
 count if t1_`vti_`l'_str_l' ==`i' & q2==2
 putexcel O${x}=`r(N)', nformat(number)
 count if t2_`vti_`l'_str_l'==`i' & q2==2
 putexcel P${x}=`r(N)', nformat(number)
-count if t3_`vti_`l'_str_l'==`i' & q2==2
-putexcel Q${x}=`r(N)', nformat(number)
+*count if t3_`vti_`l'_str_l'==`i' & q2==2
+*putexcel Q${x}=`r(N)', nformat(number)
 
 }
 
