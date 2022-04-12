@@ -106,7 +106,7 @@ global scripts "C:\Users\NathanSivewright\C4ED\P20204i_EUTF_UGA - Documents\04_F
 
 
 cd "$dofiles"
-
+ex 
 ** ADO-FILES REQUIRED
 *ssc install strgroup
 
