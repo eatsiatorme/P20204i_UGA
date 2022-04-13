@@ -50,7 +50,10 @@ if "`c(username)'" == "Personal" {
 	global dofiles "C:\Users\Personal\OneDrive - C4ED\Documents\GitHub\P20204i_UGA\dofiles"
 }
 
-
+if "`c(username)'"=="NathanSivewright" { 
+	global timezone = 1
+global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
+}
 
 if "`c(username)'" == "ElikplimAtsiatorme"{
 capture mkdir "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\" 
