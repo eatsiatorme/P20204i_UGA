@@ -363,6 +363,7 @@ replace no_pref=1 if id_number=="M9OXVP"
 ********************************************************************************
 * STANDARDIZING TRADES
 ********************************************************************************
+/*
 label def L_Trades 1 "BCP - Tailing and Compound scaping" 2 "TGC - Repair of Machines" 3 "Electrical Installation" 4 "Plumbing - Repair of deep well (boreholes)" 5 "Knitting and Weaving" 6 "Welding and Metal Fabrication" 7 "Solar Installation, Repair and Maintenance" 8 "Catering and Hotel Management" 9 "Carpentry & Joinery" 10 "Maintenance of small-scale industrial plants" 11 "Computer ICT Skills (Graphic design and branding)" 12 "TGC-fashion and Design" 13 "Motorcycle Repair" 14 "Maintenance of small scale and industrial machines"
 
 ** INDE
@@ -384,7 +385,26 @@ label val t1_nyumanzi t2_nyumanzi  L_Trades
 ** OCEA
 recode t1_ocea t2_ocea (5=1) (1=2) (9=3) (11=4) (13=5) (10=6) (4=7) (3=8) (6=9) (2=10) (7=11) (12=12) (8=13)
 label val t1_ocea t2_ocea L_Trades
+*/
 
+label def L_Trades 1 "Building & Concrete Practices - Tiling & Land Scaping" 2 "Tailoring and Garment Cutting - Tailoring Machine Repair" 3 "Solar Installation, Repair and Maintenance" 4 "Plumbing - Repair of Boreholes" 5 "Knitting and Weaving" 6 "Welding and Metal Fabrication" 7 "Catering and Hotel Management" 8 "Carpentry & Joinery" 9 "Maintenance of Small-Scale Industrial Machines" 10 "Electrical Installation" 11 "CT - Graphic Design and Branding" 12 "Tailoring and Garment Cutting - Tailoring Machines Repair and Fashion Design"  13 "Motorcycle Repair" 14 "Mechanics of Small Scale & Industrial Machine"
+
+** INDE
+recode t1_inde t2_inde (1 = 8) (2 = 6) (3 = 9) (4 = 1) (5 = 12) (6 = 13) (7 = 10)
+label val t1_inde t2_inde  L_Trades
+
+
+** AYILO
+recode t1_ayilo t2_ayilo (1=2) (2=11) (3=7) (4=3) (5=1) (6=14) 
+label val t1_ayilo t2_ayilo  L_Trades
+
+** NYUMANZI
+recode t1_nyumanzi t2_nyumanzi (1=2) (2=11) (3=7) (4=3) (5=1) (6=14)  
+label val t1_nyumanzi t2_nyumanzi  L_Trades
+
+** OCEA
+recode t1_ocea t2_ocea (1=2) (2=11) (3=7) (4=3) (5=1) (6=14)
+label val t1_ocea t2_ocea L_Trades
 
 ********************************************************************************
 * FIXING TRADE PREFERENCES - correct!
