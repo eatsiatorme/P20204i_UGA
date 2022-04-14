@@ -52,6 +52,8 @@ if "`c(username)'" == "Personal" {
 
 if "`c(username)'"=="NathanSivewright" { 
 	global timezone = 1
+capture mkdir "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\" 
+global local_path "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local"
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
 }
 
@@ -65,7 +67,7 @@ global version = 0
 global date = string(date("`c(current_date)'","DMY"),"%tdNNDD")
 global time = string(clock("`c(current_time)'","hms"),"%tcHHMMSS")
 global datetime = "$date"+"$time"
-global dashboard = 1 // Enter 1 if you want the dashboard to run NOTE: Adds approx 5 mins
+global dashboard = 0 // Enter 1 if you want the dashboard to run NOTE: Adds approx 5 mins
 
 
 // Round and Tool

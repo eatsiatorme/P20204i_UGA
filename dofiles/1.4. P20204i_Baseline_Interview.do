@@ -182,7 +182,13 @@ end
 			save "${errorfile}\error_${main_table}_${i}.dta", replace
 		}
 		keep if error!=.
-		keep id error errDesc scto_link script_link vti form_number
+		capture confirm variable Cohort1_id
+		if !_rc {
+		keep id error errDesc scto_link script_link vti form_number Cohort1_id
+		}
+		else {
+		keep id error errDesc scto_link script_link vti form_number 	
+		}
 		count if error != .
 		dis "Found `r(N)' instances of error ${i}: `1'"
 		capture duplicates drop
@@ -362,6 +368,121 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	use "$main_table", clear
 	gen error=${i} if t1_ocea==.b & above_18==1 & duplicate_script==0 & no_consent==0
 	addErr "No trade preferences - check script"
+	
+	global i=206
+
+	
+**********************************
+* STEP 1: CHOICE OF FIELDS
+**********************************
+	
+use "$main_table", clear
+di "${i}"
+* Cycle 2 Applications (Master)	
+
+* q1: What is your name? (string)
+* vti: Selected VTI (categorical)
+* q2: Gender (categorical)
+* q4_a: Are you a refugee or a host community member (categorical)
+* q4_b: Ugandan or refugee status number (string)
+
+tempfile master_data
+save `master_data'
+
+* Cycle 1 Applications (Using)
+
+use "H:\Baseline\C1\Application Form\cleaning\Rise Baseline Form.dta", clear
+
+* q1: What is your name? (string)
+* vti: Selected VTI (categorical)
+* q2: Gender (categorical)
+* q4_a: Are you a refugee or a host community member (categorical)
+* q4_b: Ugandan or refugee status number (string)
+
+rename id_number id_number_u
+tempfile using_data
+save `using_data'
+
+**********************************
+* STEP 2: PRE-PROCESSING (CLEANING)
+**********************************
+
+local dataset master using
+
+foreach y in `dataset' {
+use "``y'_data'", clear
+foreach var of varlist vti q2 q4_a {
+decode `var', gen(`var'_string)
+}
+save "``y'_data'", replace
+}
+
+
+foreach y in `dataset' {
+use "``y'_data'", clear
+foreach var of varlist q1 q4_b *_string {
+replace `var'=upper(`var') // Ensure strings are in the same case
+replace `var'=trim(`var') // Remove rogue spaces at the beginning or end of a string
+replace `var'=itrim(`var') // Remove double spaces within a string
+}
+save "``y'_data'", replace
+}
+
+/*
+Afterwards you may want to do more specific cleaning such as removing some/all punctuation
+*/
+foreach y in `dataset' {
+use "``y'_data'", clear
+foreach var of varlist q1 q4_b *_string {
+foreach char in $ , @ \ / ! ? ^ % # + . ( ) { // Removes special characters
+replace `var'=subinstr(`var',"`char'","",.)
+}
+}
+save "``y'_data'", replace
+}
+
+
+/*
+You can use phonetic algorithms to assist the fuzzy matching
+*/
+
+foreach y in `dataset' {
+use "``y'_data'", clear
+gen phonetic_name = soundex(q1)
+nysiis q1, generate(q1_nysiis)
+
+replace q4_b = "" if q4_b=="-555"
+
+save "``y'_data'", replace
+}
+
+**********************************
+* STEP 3. BLOCKING V LINKING
+**********************************
+
+/*
+BLOCKING: vti_string
+LINKING: q1 q4_b q2_string q4_a_string
+*/
+
+**********************************
+* STEP 4. PROBABILISTIC LINKING
+**********************************
+use `master_data', clear
+
+gen id_number_ma = _n
+
+reclink2 q1 q2_string q4_a_string vti_string using `using_data', idm(id_number_ma) idu(id_number_u) wmatch(15 1 2 3) gen(match_score) many npairs(3) required(vti_string) 
+matchit q1 Uq1
+
+drop id_number_ma
+rename id_number_u Cohort1_id
+
+gen error=${i} if similscore > 0.75
+addErr "Possible Re-applicant" 
+
+
+
 		}
 
 	/*
