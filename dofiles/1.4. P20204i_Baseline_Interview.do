@@ -182,8 +182,6 @@ end
 			save "${errorfile}\error_${main_table}_${i}.dta", replace
 		}
 		keep if error!=.
-		*keep id error errDesc scto_link script_link vti form_number 
-		** new starts
 		capture confirm variable Cohort1_id
 		if !_rc {
 		keep id error errDesc scto_link script_link vti form_number Cohort1_id
@@ -191,7 +189,6 @@ end
 		else {
 		keep id error errDesc scto_link script_link vti form_number 	
 		}
-		** new ends
 		count if error != .
 		dis "Found `r(N)' instances of error ${i}: `1'"
 		capture duplicates drop
