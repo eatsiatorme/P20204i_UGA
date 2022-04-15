@@ -114,6 +114,8 @@ cd "$dofiles"
 
 ** ADO-FILES REQUIRED
 *ssc install strgroup
+*ssc install nysiis
+*ssc install reclink2 <- Look for the right installation link: For now type in in 'help reclink2' and follow the link to install.
 
 
 *****************************************
