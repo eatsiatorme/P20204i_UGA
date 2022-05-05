@@ -141,14 +141,30 @@ label var q12_5 "q12_5. Reasons for dropping out of school [Health]"
 label var q12_6 "q12_6. Reasons for dropping out of school [Conflict]"
 label var q12_7 "q12_7. Reasons for dropping out of school [Migration]"
 label var q12_8 "q12_8. Reasons for dropping out of school [Pregnancy]"
-cap label var q13_begin "q13_begin. Has respondent attended a previous TVET training"
-label var q13_a "q13_a. Name of previous TVET training attended"
-label var q13_b "q13_b. Year previous TVET training was attended"
-label var q13_c "q13_c. Name of the previous TVET school previously attended"
-label var q13_d "q13_d. Certificate from DIT"
-label var q14 "q14. Worked or working in a paid job in the last 6 months that lasted at least 1 month" 
-label var q15 "q15. Employment status in said job"
-label var q15_specify "q15_specify. Please specify other status in said job"
+
+label var q13 "q13. Worked or working in a paid job in the last 6 months that lasted at least 1 month"
+
+label var q14 "q14. Employment status in said job"
+label var q14_specify "q14_specify. Please specify other status in said job"
+
+label var q15 "q15. Reason for applying to preferred course"
+label var q15_specify "q15_specify. Other reasons for applying to preferred course"
+
+label var q16_a "q16_a. Exposed to household vulnerabilities"
+label var q16_b "q16_b. Exposed to mental health vulnerabilities"
+label var q16_c "q16_c. Exposed to physical health vulnerabilities"
+label var q16_d "q16_d. Exposed to a chronic disease or condition"
+label var q16_other "q16_other. Exposed to other vulneralities"
+label var q16_specify "q16_specify. Please specify the other vulnerabilities"
+
+cap label var q17_begin "q17_begin. Has respondent attended a previous TVET training"
+label var q17_a "q17_a. Name of previous TVET training attended"
+label var q17_b "q17_b. Year previous TVET training was attended"
+label var q17_c "q17_c. Name of the previous TVET school previously attended"
+label var q17_d "q17_d. Certificate from DIT"
+
+*label var q14 "q14. Worked or working in a paid job in the last 6 months that lasted at least 1 month" 
+
 label var t1_omugo "t1_omugo. First preferred trade [Omugo]"
 label var t2_omugo "t2_omugo. Second preferred trade [Omugo]"
 *label var t3_omugo "t3_omugo. Third preferred trade [omugo]"
@@ -167,17 +183,11 @@ label var t2_nyumanzi "t2_nyumanzi. Second preferred trade [Nyumanzi]"
 label var t1_ocea "t1_ocea. first preferred trade [Ocea]"
 label var t2_ocea "t2_ocea. Second preferred trade [Ocea]"
 *label var t3_ocea "t3_ocea. Third preferred trade [Ocea]"
-label var q17 "q17. Reason for applying to preferred course"
-label var q17_specify "q17_specify. Other reasons for applying to preferred course"
-label var q18_a "q18_a. Exposed to household vulnerabilities"
-label var q18_b "q18_b. Exposed to mental health vulnerabilities"
-label var q18_c "q18_c. Exposed to physical health vulnerabilities"
-label var q18_d "q18_d. Exposed to a chronic disease or condition"
-label var q18_other "q18_other. Exposed to other vulneralities"
-label var q18_specify "q18_specify. Please specify the other vulnerabilities"
-label var q19 "q19. Distance from home of applicant to VTI"
-label var q19_b "q19_b. Unit of distance [Kilometres or Miles]"
-label var q20 "q20. Travelling time in minutes from home of applicant to VTI" 
+
+
+label var q18 "q18. Distance from home of applicant to VTI"
+label var q18_b "q18_b. Unit of distance [Kilometres or Miles]"
+label var q19 "q19. Travelling time in minutes from home of applicant to VTI" 
 label var q3 "q3. Date of birth of applicant"
 label var q5 "q5. Date of application"
 
@@ -207,7 +217,7 @@ macro shift
 * CREATING MISSING VARIABLES FOR NUMERIC AND TIDYING UP (NUMERIC AND STRING)
 ********************************************************************************
 
-foreach var of varlist q1 q2 q4_a consent age q4_b q6_a q6_b q6_c q6_d q6_e q6_f q7_village district district_specify sub_county sub_county_specify_b parish_zone q8 q8_specify q9_a q9_b q10_a q10_b q11 q11_specify q12 q12_* q12_specify q13_a q13_c q13_d q14 q15 q15_specify t1_* t2_* q17_* q18_* q19 q19_b q20 {
+foreach var of varlist q1 q2 q4_a consent age q4_b q6_a q6_b q6_c q6_d q6_e q6_f q7_village district district_specify sub_county sub_county_specify_b parish_zone q8 q8_specify q9_a q9_b q10_a q10_b q11 q11_specify q12 q12_* q12_specify q17_a q17_c q17_d q13 q14 q14_specify t1_* t2_* q15_* q16_* q18 q18_b q19 {
 
 	capture confirm numeric variable `var'
     if !_rc {
@@ -737,10 +747,10 @@ drop dupindicator
 ********************************************************************************
 * CLEANING TVET
 ********************************************************************************
-replace q13_a = upper(q13_a)
-replace q13_c = upper(q13_c)
-replace q13_a = "NONE" if (strpos(q13_a, "NO") | strpos(q13_a, "N0") | strpos(q13_a, "N/A") | strpos(q13_a, "NILL") | strpos(q13_a, "NIL"))  > 0
-replace q13_c = "NONE" if (strpos(q13_c, "NO") | strpos(q13_c, "N0") | strpos(q13_c, "N/A") | strpos(q13_c, "NILL") | strpos(q13_c, "NIL") | strpos(q13_c, "NA"))  > 0
+replace q17_a = upper(q17_a)
+replace q17_c = upper(q17_c)
+replace q17_a = "NONE" if (strpos(q17_a, "NO") | strpos(q17_a, "N0") | strpos(q17_a, "N/A") | strpos(q17_a, "NILL") | strpos(q17_a, "NIL"))  > 0
+replace q17_c = "NONE" if (strpos(q17_c, "NO") | strpos(q17_c, "N0") | strpos(q17_c, "N/A") | strpos(q17_c, "NILL") | strpos(q17_c, "NIL") | strpos(q17_c, "NA"))  > 0
 
 ********************************************************************************
 * MISC CLEANING
@@ -793,13 +803,13 @@ replace q19_b=.b if id_number=="YXF9K2"
 * TRYING TO CLEAN UP THE DISTANCE TO VTI VARIABLE
 ********************************************************************************
 
-gen dist_km = q19 if q19_b==1
+gen dist_km = q18 if q18_b==1
 replace dist_km = . if (dist_km==.a | dist_km==.b | dist_km==.c)
-replace dist_km = q19 * 1.60934 if q19_b==2
+replace dist_km = q18 * 1.60934 if q18_b==2
 
-replace dist_km = q20 / 15 if dist_km==. // Assume that approx 15 mins per km - this was the median when dividing time / km 
+replace dist_km = q19 / 15 if dist_km==. // Assume that approx 15 mins per km - this was the median when dividing time / km 
 
-replace dist_km = q19 if q19_b==.b & q19!=. // Assume that distance is in km 
+replace dist_km = q18 if q18_b==.b & q18!=. // Assume that distance is in km 
 
 replace dist_km = . if (dist_km==.a | dist_km==.b | dist_km==.c)
 
@@ -812,11 +822,11 @@ label var dist_km "Distance in Km to VTI (Cleaned)"
 label def refugee_lbl .b "Unknown" .z "Removed (Duplicate Script)", modify
 
 
-label var q17_1 "q17 [Find a job in a business]"
-label var q17_2 "q17 [Start or develop a business]"
-label var q17_3 "q17 [Develop skills without concrete professional ambitions]"
-label var q17__96 "q17 [others (specify)]"
-label var q17__555 "q17 [No response]"
+label var q15_1 "q15 [Find a job in a business]"
+label var q15_2 "q15 [Start or develop a business]"
+label var q15_3 "q15 [Develop skills without concrete professional ambitions]"
+label var q15__96 "q15 [others (specify)]"
+label var q15__555 "q15 [No response]"
 
 ********************************************************************************
 * CREATING ELIGIBILITY VARIABLES

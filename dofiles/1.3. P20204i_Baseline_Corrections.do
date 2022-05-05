@@ -76,7 +76,7 @@ foreach var of varlist `r(varlist)' {
 * FIXING AGES
 ********************************************************************************
 * Done by checking against script and confirming above 18 if less than or equal to 19 years old
-replace above_18 = 1 if age>=19 & age!=.
+replace above_18 = 1 if age>=18 & age!=.
 
 * Done by checking against script and confirming the age is missing 
 

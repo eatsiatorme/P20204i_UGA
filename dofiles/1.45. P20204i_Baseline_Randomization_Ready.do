@@ -80,26 +80,26 @@ label var pr_name "Get Refugee Status Post Randomization"
 ********************************************************************************
 * 3. GENERATING BINARY VARIABLE FOR PREVIOUS TVET
 ********************************************************************************
-gen q13_a_binary = 1
-replace q13_a_binary = 0 if q13_a=="NONE" | q13_a=="-555"
-replace q13_a_binary = .b if q13_a=="-666" | q13_a=="-444"
+gen q17_a_binary = 1
+replace q17_a_binary = 0 if q17_a=="NONE" | q17_a=="-555"
+replace q17_a_binary = .b if q17_a=="-666" | q17_a=="-444"
 
-gen q13_c_binary = 1
-replace q13_c_binary = 0 if q13_c=="NONE" | q13_c=="-555"
-replace q13_c_binary = .b if q13_c=="-666" | q13_c=="-444" | q13_c=="-888"
+gen q17_c_binary = 1
+replace q17_c_binary = 0 if q17_c=="NONE" | q17_c=="-555"
+replace q17_c_binary = .b if q17_c=="-666" | q17_c=="-444" | q17_c=="-888"
 
-gen q13_d_binary = q13_d
-replace q13_d_binary = 0 if q13_d==.b
+gen q17_d_binary = q17_d
+replace q17_d_binary = 0 if q17_d==.b
 
-gen q13_b_binary = (q13_b<td(27oct2021))
+gen q17_b_binary = (q17_b<td(27oct2021))
 
-egen any_tvet = rowtotal(q13_a_binary q13_b_binary q13_c_binary q13_d_binary)
+egen any_tvet = rowtotal(q17_a_binary q17_b_binary q17_c_binary q17_d_binary)
 replace any_tvet = 1 if any_tvet > 0
 
-drop q13_a_binary
-drop q13_c_binary
-drop q13_d_binary
-drop q13_b_binary
+drop q17_a_binary
+drop q17_c_binary
+drop q17_d_binary
+drop q17_b_binary
 
 
 label var any_tvet "Any previous TVET (1=YES)"
@@ -158,13 +158,14 @@ label def L_TVET 0 "No previous TVET" 1 "Attended Previous TVET"
 label val any_tvet L_TVET
 
 cap order q12_9-q12_16, after(q12_8)
-cap order q17_4-q17_6, after(q17_3)
+cap order q15_4-q15_6, after(q15_3)
 order q3 current_age, after(q2)
-order q13_b, after(q13_a)
+order q17_b, after(q17_a)
 cap order round cohort duplicate_script above_18 no_consent blank_preference blank_preference_ex ineligible, after(id_number)
-order dist_km, after(q19_b)
+order dist_km, after(q18_b)
 
-
+destring q6_a, replace
+destring q6_b, replace
 
 
 foreach var of varlist q6_a q6_b {
