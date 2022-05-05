@@ -316,14 +316,14 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	gen x= floor(log10( q6_a ))
 	gen error=${i} if x!=8 & x!=.
 	addErr "Less than 8 digits in phone number 1 - Check against Paper Copy"
-	
+	/*
 	global i=39
 	use "$main_table", clear
-	destring q6_b, replace
+	cap destring q6_b, replace
 	gen x= floor(log10( q6_b ))
 	gen error=${i} if x!=8 & x!=.
 	addErr "Less than 8 digits in phone number 2 - Check against Paper Copy"
-	
+	*/
 	global i=40
 	use "$main_table", clear
 	gen no_name = (q1=="-444" | q1=="-555")

@@ -107,7 +107,7 @@ global main_data_path "$cleaning\/$main_table.dta" // Enter main dataset path
 global errorfile "$ONEDRIVE\$folder\04_Field Work\06_Checks\error datasets"
 global checking_log "$ONEDRIVE\$folder\04_Field Work\06_Checks\checking_log"
 local checksheet "${main_table}_CHECKS"
-global scripts "C:\Users\NathanSivewright\C4ED\P20204i_EUTF_UGA - Documents\04_Field Work\07_All_Scripts\"
+global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Documente\04_Field Work\07_All_Scripts\"
 
 
 cd "$dofiles"
