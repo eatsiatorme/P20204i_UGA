@@ -287,12 +287,12 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	
 	global i=33
 	use "$main_table", clear
-	gen error=${i} if age<19 &  above_18==. & duplicate_script==0
+	gen error=${i} if age<18 &  above_18==. & duplicate_script==0
 	addErr "Age Below 18 - Check against Paper Copy"
 	
 	global i=34
 	use "$main_table", clear
-	gen error=${i} if q20<0 & duplicate_script==0
+	gen error=${i} if q19<0 & duplicate_script==0
 	addErr "Distance is Negative mins - Check against Paper Copy"
 	
 	*global i=35
@@ -307,17 +307,19 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	
 	global i=37
 	use "$main_table", clear
-	gen error=${i} if q19>100 & !(q19==.a |  q19==.b |  q19==.c |  q19==.) & duplicate_script==0
+	gen error=${i} if q18>100 & !(q18==.a |  q18==.b |  q18==.c |  q18==.) & duplicate_script==0
 	addErr "Distance more than 100 Km/miles - Check against Paper Copy"
 	
 	global i=38
 	use "$main_table", clear
+	destring q6_a, replace
 	gen x= floor(log10( q6_a ))
 	gen error=${i} if x!=8 & x!=.
 	addErr "Less than 8 digits in phone number 1 - Check against Paper Copy"
 	
 	global i=39
 	use "$main_table", clear
+	destring q6_b, replace
 	gen x= floor(log10( q6_b ))
 	gen error=${i} if x!=8 & x!=.
 	addErr "Less than 8 digits in phone number 2 - Check against Paper Copy"
@@ -583,7 +585,7 @@ use "$checking_log\\`checksheet'_corrections", clear
 import excel "$checking_log\/${main_table}_CHECKS.xlsx", clear firstrow 
 destring vti, replace
 tostring Comment, replace
-merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen
+merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen force
 
 	sort errDesc
 	sort error id
