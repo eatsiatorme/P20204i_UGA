@@ -373,7 +373,7 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	
 	global i=206
 
-	
+/*	
 **********************************
 * STEP 1: CHOICE OF FIELDS
 **********************************
@@ -482,7 +482,7 @@ rename id_number_u Cohort1_id
 
 gen error=${i} if similscore > 0.75
 addErr "Possible Re-applicant" 
-
+*/
 
 
 		}
