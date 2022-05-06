@@ -56,8 +56,8 @@ restore
 ********************************************************************************
 
 
-if $dashboard == 1 {
-n: di "Dashboard Option Selected - will take approx 5 mins"
+*if $dashboard == 1 {
+*n: di "Dashboard Option Selected - will take approx 5 mins"
 use "$corrections\/$main_table.dta", clear
 
 putexcel set "$ONEDRIVE\$folder\04_Field Work\04_Randomisation\Trades_Preference_Dashboard.xlsx", modify sheet ("Summary")
@@ -150,7 +150,7 @@ di "S${x}"
 putexcel S${x}=`r(N)', nformat(number)
 }
 
-}
+*}
 
 n: di "${proj}_${round}_Data_Progress.do Completed"
 *}

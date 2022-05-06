@@ -48,6 +48,7 @@ if "`c(username)'" == "Personal" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
 	global ONEDRIVE "C:\Users\/Personal\C4ED\"
 	global dofiles "C:\Users\Personal\OneDrive - C4ED\Documents\GitHub\P20204i_UGA\dofiles"
+	global scripts "C:\Users\/Personal\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
 }
 
 if "`c(username)'"=="NathanSivewright" { 
@@ -107,7 +108,7 @@ global main_data_path "$cleaning\/$main_table.dta" // Enter main dataset path
 global errorfile "$ONEDRIVE\$folder\04_Field Work\06_Checks\error datasets"
 global checking_log "$ONEDRIVE\$folder\04_Field Work\06_Checks\checking_log"
 local checksheet "${main_table}_CHECKS"
-global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Documente\04_Field Work\07_All_Scripts\"
+global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
 
 
 cd "$dofiles"

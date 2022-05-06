@@ -1555,6 +1555,11 @@ replace consent=1 if id_number=="PYKF1H"
 replace consent=1 if id_number=="S5FW7S"
 
 */
+
+
+***Cleaning Phone numbers
+replace q6_b = "0211929600296" if id_number=="ARJBJJ" //This number is from South Sudan. Replace 0 with + when trying to reach respondents via phone
+replace q6_b = "773177228" if id_number=="LO3BXA"
 ********************************************************************************
 * SAVE CLEANING DATA
 ********************************************************************************
