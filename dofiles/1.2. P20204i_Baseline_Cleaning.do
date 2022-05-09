@@ -1562,6 +1562,7 @@ replace q6_b = "0211929600296" if id_number=="ARJBJJ" //This number is from Sout
 replace q6_b = "773177228" if id_number=="LO3BXA"
 replace q6_a = "0789586951" if id_number == "XHFEOV"
 replace q6_a = "-555" if id_number == "I0HCM0"
+replace q6_b = "0211924620999" if id_number == "Y7HK8C"
 
 
 **Fixing duplicates
@@ -1570,7 +1571,13 @@ replace form_number = 196 if id_number == "S2DDQG"
 replace form_number = 375 if id_number == "106BUV"
 drop if id_number == "QIJIVA"
 drop if id_number == "VMUHXB"
-drop if id_number == "2ZYAVU"
+
+
+***Fixing errors
+replace q6_b = "-555" if id_number == "1EH4JZ"
+replace q6_c = "Letio Grace" if id_number == "1EH4JZ"
+
+
 
 
 ********************************************************************************
