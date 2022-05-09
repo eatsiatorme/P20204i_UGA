@@ -1570,6 +1570,7 @@ replace form_number = 196 if id_number == "S2DDQG"
 replace form_number = 375 if id_number == "106BUV"
 drop if id_number == "QIJIVA"
 drop if id_number == "VMUHXB"
+drop if id_number == "2ZYAVU"
 
 
 ********************************************************************************
