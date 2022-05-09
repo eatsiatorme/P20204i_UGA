@@ -48,7 +48,7 @@ if "`c(username)'" == "Personal" {
 	global local_path "C:\Users\Personal\OneDrive - C4ED\Desktop\SCTO"
 	global ONEDRIVE "C:\Users\/Personal\C4ED\"
 	global dofiles "C:\Users\Personal\OneDrive - C4ED\Documents\GitHub\P20204i_UGA\dofiles"
-	global scripts "C:\Users\/Personal\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
+	global scripts "C:\Users\/Personal\C4ED\P20204i_EUTF_UGA - Documents\04_Field Work\07_All_Scripts\"
 }
 
 if "`c(username)'"=="NathanSivewright" { 
