@@ -373,7 +373,7 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	
 	global i=206
 
-/*	
+/*
 **********************************
 * STEP 1: CHOICE OF FIELDS
 **********************************
@@ -461,8 +461,8 @@ save "``y'_data'", replace
 **********************************
 * STEP 3. BLOCKING V LINKING
 **********************************
-
 /*
+
 BLOCKING: vti_string
 LINKING: q1 q4_b q2_string q4_a_string
 */
@@ -482,21 +482,21 @@ rename id_number_u Cohort1_id
 
 gen error=${i} if similscore > 0.75
 addErr "Possible Re-applicant" 
-*/
+
 
 
 		}
-
-	/*
+*/
 	
+	/*
 	
 		global i=
 	use $main_table, clear
 	gen error=${i} if
 	addErr ""	
 
+*/	
 	
-	*/
 	
 	
 *****************************************************************************************************************
@@ -585,7 +585,7 @@ use "$checking_log\\`checksheet'_corrections", clear
 import excel "$checking_log\/${main_table}_CHECKS.xlsx", clear firstrow 
 destring vti, replace
 tostring Comment, replace
-merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen force
+merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen force 
 
 	sort errDesc
 	sort error id
