@@ -1579,6 +1579,13 @@ drop if id_number == "K21PQH"
 replace q6_b = "-555" if id_number == "1EH4JZ"
 replace q6_c = "Letio Grace" if id_number == "1EH4JZ"
 
+****Fixing Gender issues
+replace q2 = 1 if id_number == "126BI9"
+replace q2 = 2 if id_number == "2CG7QX"
+replace q2 = 2 if id_number == "3QA04X"
+replace q2 = 2 if id_number == "DRHJ84"
+
+
 
 
 

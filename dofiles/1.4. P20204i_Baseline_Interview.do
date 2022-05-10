@@ -373,7 +373,7 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	
 	global i=206
 
-/*
+
 **********************************
 * STEP 1: CHOICE OF FIELDS
 **********************************
@@ -486,7 +486,7 @@ addErr "Possible Re-applicant"
 
 
 		}
-*/
+
 	
 	/*
 	
