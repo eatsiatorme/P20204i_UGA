@@ -176,6 +176,15 @@ end
 
 		replace script_link = `"HYPERLINK("$scripts"' + vti_s + "\" + vti_s + " (" + form_number_s + ")" +".pdf" + `"", "View Script")"'
 		drop vti_s form_number_s
+		
+		// NEW BEGINNING
+				capture confirm variable Cohort1_id
+		if !_rc {
+		gen c1script_link=""
+		replace c1script_link = `"HYPERLINK("$c1scripts"' + Cohort1_id +".pdf" + `"", "View Script")"'
+		}
+		
+		// NEW END
 	
 		count if error!=.
 		if `r(N)'>0{
@@ -184,10 +193,10 @@ end
 		keep if error!=.
 		capture confirm variable Cohort1_id
 		if !_rc {
-		keep id error errDesc scto_link script_link vti form_number Cohort1_id
+		keep id error errDesc scto_link script_link vti form_number Cohort1_id c1script_link
 		}
 		else {
-		keep id error errDesc scto_link script_link vti form_number 	
+		keep id error errDesc scto_link script_link vti form_number  	
 		}
 		count if error != .
 		dis "Found `r(N)' instances of error ${i}: `1'"
@@ -370,7 +379,7 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	use "$main_table", clear
 	gen error=${i} if t1_ocea==.b & above_18==1 & duplicate_script==0 & no_consent==0
 	addErr "No trade preferences - check script"
-	
+
 	global i=206
 
 
@@ -480,7 +489,7 @@ matchit q1 Uq1
 drop id_number_ma
 rename id_number_u Cohort1_id
 
-gen error=${i} if similscore > 0.75
+gen error=${i} if similscore > 0.70
 addErr "Possible Re-applicant" 
 
 
@@ -498,7 +507,7 @@ addErr "Possible Re-applicant"
 */	
 	
 	
-	
+
 *****************************************************************************************************************
 ********************************************* END ERRORS ********************************************************
 *****************************************************************************************************************
@@ -506,7 +515,7 @@ addErr "Possible Re-applicant"
 ******************************************
 * 4. Creating output
 ******************************************
-
+n: di "HELLO MY NAME IS NATHAN"
 
 		**************************	
 		**CREATE CHECKING SHEETS**
@@ -528,7 +537,7 @@ addErr "Possible Re-applicant"
 		save, replace
 
 	}
-		
+n: di "HELLO MY NAME IS NATHAN2"	
 **************************
 **Merge exported and cleaning**
 **************************
@@ -540,7 +549,7 @@ save "$checking_log\\`checksheet'_cleaning", replace
 
 use "$checking_log\\`checksheet'_corrections", clear
 	if wordcount("`dirs'") > 1{
-		merge 1:1 id error using "$checking_log\\`checksheet'_cleaning"
+		merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_cleaning"
 
 		replace Comment = "Fixed by cleaning" if _merge == 2
 		replace Comment = "Caused by cleaning" if _merge == 1
@@ -558,7 +567,7 @@ use "$checking_log\\`checksheet'_corrections", clear
 		tempfile filter
 		save `filter'
 		restore
-		merge 1:m id error using `filter', keepusing(id error) keep(1) nogen
+		merge 1:m id_number error Cohort1_id using `filter', keepusing(id error) keep(1) nogen
 	}
 	else {
 		drop if _n > 0
@@ -585,7 +594,7 @@ use "$checking_log\\`checksheet'_corrections", clear
 import excel "$checking_log\/${main_table}_CHECKS.xlsx", clear firstrow 
 destring vti, replace
 tostring Comment, replace
-merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen  
+merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", keep(3) nogen  
 
 	sort errDesc
 	sort error id
@@ -594,6 +603,8 @@ merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen
 		mata: add_scto_link("$checking_log\/${main_table}_CHECKS", "Sheet1", "scto_link", `pos')
 		local pos : list posof "script_link" in allvars
 		mata: add_script_link("$checking_log\/${main_table}_CHECKS", "Sheet1", "script_link", `pos')
+		local pos : list posof "c1script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS", "Sheet1", "c1script_link", `pos')
 		
 n: di "${proj}_${round}_Interview.do Completed"	
 }

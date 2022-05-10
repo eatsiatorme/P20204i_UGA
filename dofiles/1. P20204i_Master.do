@@ -56,12 +56,16 @@ if "`c(username)'"=="NathanSivewright" {
 capture mkdir "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local\" 
 global local_path "C:\Users\/`c(username)'\Desktop\P20204i_Baseline_Local"
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204i_UGA\dofiles"
+global scripts "C:\Users\NathanSivewright\C4ED\P20204i_EUTF_UGA - Documents\04_Field Work\07_All_Scripts\"
+global c1scripts "C:\Users\NathanSivewright\C4ED\P20204i_EUTF_UGA - Documents\04_Field Work\08_C1_Scripts\"
 }
 
 if "`c(username)'" == "ElikplimAtsiatorme"{
 capture mkdir "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local\" 
 global local_path "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\P20204i_Baseline_Local"
 global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB\P20204i_UGA\dofiles"
+global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
+global c1scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\08_C1_Scripts\"
 }
 
 global version = 0
@@ -108,7 +112,7 @@ global main_data_path "$cleaning\/$main_table.dta" // Enter main dataset path
 global errorfile "$ONEDRIVE\$folder\04_Field Work\06_Checks\error datasets"
 global checking_log "$ONEDRIVE\$folder\04_Field Work\06_Checks\checking_log"
 local checksheet "${main_table}_CHECKS"
-global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
+*global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
 
 
 cd "$dofiles"
@@ -122,8 +126,7 @@ cd "$dofiles"
 *****************************************
 ****** 1. DATA PROCESSING *********
 *****************************************
-*do "1.0. ${proj}_${round}_Decryption.do"
-
+do "1.0. ${proj}_${round}_Decryption.do"
 cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
