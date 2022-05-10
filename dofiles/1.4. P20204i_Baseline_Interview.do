@@ -585,7 +585,7 @@ use "$checking_log\\`checksheet'_corrections", clear
 import excel "$checking_log\/${main_table}_CHECKS.xlsx", clear firstrow 
 destring vti, replace
 tostring Comment, replace
-merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen force 
+merge 1:1 id error using "$checking_log\\`checksheet'_all", keep(3) nogen  
 
 	sort errDesc
 	sort error id
