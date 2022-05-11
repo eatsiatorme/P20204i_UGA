@@ -397,7 +397,7 @@ recode t1_ocea t2_ocea (5=1) (1=2) (9=3) (11=4) (13=5) (10=6) (4=7) (3=8) (6=9) 
 label val t1_ocea t2_ocea L_Trades
 */
 
-label def L_Trades 1 "Building & Concrete Practices - Tiling & Land Scaping" 2 "Tailoring and Garment Cutting - Tailoring Machine Repair" 3 "Solar Installation, Repair and Maintenance" 4 "Plumbing - Repair of Boreholes" 5 "Knitting and Weaving" 6 "Welding and Metal Fabrication" 7 "Catering and Hotel Management" 8 "Carpentry & Joinery" 9 "Maintenance of Small-Scale Industrial Machines" 10 "Electrical Installation" 11 "CT - Graphic Design and Branding" 12 "Tailoring and Garment Cutting - Tailoring Machines Repair and Fashion Design"  13 "Motorcycle Repair" 14 "Mechanics of Small Scale & Industrial Machine"
+label def L_Trades 1 "Building & Concrete Practices - Tiling & Land Scaping" 2 "Tailoring and Garment Cutting - Tailoring Machine Repair" 3 "Solar Installation, Repair and Maintenance" 4 "Plumbing - Repair of Boreholes" 5 "Knitting and Weaving" 6 "Welding and Metal Fabrication" 7 "Catering and Hotel Management" 8 "Carpentry & Joinery" 9 "Maintenance of Small-Scale Industrial Machines" 10 "Electrical Installation" 11 "ICT - Graphic Design and Branding" 12 "Tailoring and Garment Cutting - Tailoring Machines Repair and Fashion Design"  13 "Motorcycle Repair" 14 "Mechanics of Small Scale & Industrial Machine"
 
 ** INDE
 recode t1_inde t2_inde (1 = 8) (2 = 6) (3 = 9) (4 = 1) (5 = 12) (6 = 13) (7 = 10)
@@ -455,12 +455,12 @@ label val blank_preference L_blank
 *******************************
 * AYILO
 *******************************
-
+/*
 forvalues num=1/2 {
 	replace t`num'_ayilo=7 if t`num'_ayilo==3 & vti==4 // Changing Electrical Installation to Solar
 	replace t`num'_ayilo=.b if inlist(t`num'_ayilo, 4, 5, 6, 9, 12, 13, 14) & vti==4 // Making missing if trade not offered
 }
-
+*/
 
 ** Fixing any duplicate preferences - keep highest preference
 forvalues trade=1/14 {
@@ -500,12 +500,12 @@ replace blank_preference=1 if t1_ayilo==.b
 *******************************
 * NYUMANZI
 *******************************
-
+/*
 forvalues num=1/2 {
 	replace t`num'_nyumanzi=7 if t`num'_nyumanzi==3 & vti==5 // Changing Electrical Installation to Solar
 	replace t`num'_nyumanzi=.b if inlist(t`num'_nyumanzi, 4, 5, 6, 9, 12, 13, 14) & vti==5 // Making missing if trade not offered
 }
-
+*/
 
 ** Fixing any duplicate preferences - keep highest preference
 forvalues trade=1/14 {
@@ -544,12 +544,12 @@ replace blank_preference=1 if t1_nyumanzi==.b
 *******************************
 * OCEA
 *******************************
-
+/*
 forvalues num=1/2 {
 	replace t`num'_ocea=7 if t`num'_ocea==3 & vti==6 // Changing Electrical Installation to Solar
 	replace t`num'_ocea=.b if inlist(t`num'_ocea, 4, 5, 6, 9, 12, 13, 14) & vti==6 // Making missing if trade not offered
 }
-
+*/
 
 ** Fixing any duplicate preferences - keep highest preference
 forvalues trade=1/14 {
@@ -591,12 +591,12 @@ replace blank_preference=1 if t1_ocea==.b
 *******************************
 * INDE
 *******************************
-
+/*
 forvalues num=1/2 {
 	replace t`num'_inde=10 if t`num'_inde==14 & vti==2 // Changing Electrical Installation to Solar
 	replace t`num'_inde=.b if inlist(t`num'_inde, 4, 5, 7, 8, 11, 12, 14) & vti==2 // Making missing if trade not offered
 }
-
+*/
 
 ** Fixing any duplicate preferences - keep highest preference
 forvalues trade=1/14 {
@@ -639,11 +639,11 @@ replace blank_preference=1 if t1_inde==.b
 *******************************
 * OMUGO
 *******************************
-
+/*
 forvalues num=1/2 {
 	replace t`num'_omugo=.b if inlist(t`num'_omugo, 9, 10, 11, 12, 13, 14) & vti==1 // Making missing if trade not offered
 }
-
+*/
 
 ** Fixing any duplicate preferences - keep highest preference
 forvalues trade=1/14 {
@@ -685,11 +685,11 @@ replace blank_preference=1 if t1_omugo==.b
 *******************************
 * AMELO
 *******************************
-
+/*
 forvalues num=1/2 {
 	replace t`num'_amelo=.b if inlist(t`num'_amelo, 2, 4, 5, 7, 8, 9, 10, 11, 14) & vti==3 // Making missing if trade not offered
 }
-
+*/
 
 ** Fixing any duplicate preferences - keep highest preference
 forvalues trade=1/14 {
@@ -1564,6 +1564,11 @@ replace q6_a = "0789586951" if id_number == "XHFEOV"
 replace q6_a = "-555" if id_number == "I0HCM0"
 replace q6_b = "0211924620999" if id_number == "Y7HK8C"
 replace q6_b = "-555" if id_number == "7S3CBJ" 
+replace q6_a = "0777619265" if id_number == "F5Z7FR"
+replace q6_b = "0760491691" if id_number == "Z2I5TL"
+replace q6_b = "-555" if id_number == "F5Z7FR"
+
+
 
 
 **Fixing duplicates
@@ -1584,6 +1589,11 @@ replace q2 = 1 if id_number == "126BI9"
 replace q2 = 2 if id_number == "2CG7QX"
 replace q2 = 2 if id_number == "3QA04X"
 replace q2 = 2 if id_number == "DRHJ84"
+
+*****Other fixes
+replace q1 = "KOSOKI JANNET" if id_number == "F5Z7FR"
+replace q4_b = "-555" if id_number =="F5Z7FR"
+replace q6_c = "ARIKU EDWARD" if id_number == "Z2I5TL"
 
 
 
