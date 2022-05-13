@@ -25,7 +25,20 @@ foreach file of local files{
 
 use "$main_table", clear
 
+* CORRECTING GENDER
+********************************************************************************
+* Done by checking against script
 
+replace q2=2 if id_number == "I41W8J"
+replace q2=1 if id_number == "KZIB9L"
+replace q2=1 if id_number == "PWPXC3"
+replace q2=2 if id_number == "T1RMUH"
+replace q2=2 if id_number == "U2TNXQ"
+replace q2=2 if id_number == "U9F1CN"
+replace q2=2 if id_number == "VAFSDB"
+replace q2=2 if id_number == "XHFEOV"
+replace q2=1 if id_number == "YIWYME"
+replace q2=1 if id_number == "ZF8UA9"
 ********************************************************************************
 * CORRECTING REFUGEE STATUS
 ********************************************************************************
@@ -154,6 +167,17 @@ replace above_18 = 1 if id_number == "VX8J4V"
 replace above_18 = 1 if id_number == "WU1F6O"
 replace above_18 = 1 if id_number == "ZF8UA9"
 
+replace above_18 = 1  if id_number=="9D3LQB"
+replace above_18 = 1  if id_number=="E4X2TW"
+replace above_18 = 1  if id_number=="GP6PJA"	 
+replace above_18 = 1  if id_number=="GZ9JX6"
+replace above_18 = 1  if id_number=="HUJ7VJ"
+replace above_18 = 1  if id_number=="K023NI"	 
+replace above_18 = 1  if id_number=="TE6VFQ"	 
+replace above_18 = 1  if id_number=="U3J6WZ"
+replace above_18 = 1  if id_number=="VAFSDB"	 
+replace above_18 = 1  if id_number=="VRWPDW"
+
 
 * Done by checking against script and finding correct age
 replace age_correct="10/03/2000"  if id_number=="9D3LQB"
@@ -192,6 +216,11 @@ replace age_correct="24/01/2002"  if id_number=="VRWPDW"
 * CONSENT CHECKS
 ********************************************************************************
 * Done by checking against script and confirming no consent / consent = no
+replace consent = 1 if id_number == "0M9SB0"
+replace consent = 1 if id_number == "ACRLFL"
+replace consent = 1 if id_number == "E4X2TW"
+replace consent = 1 if id_number == "S2DDQG"
+
 
 
 ********************************************************************************
