@@ -250,7 +250,7 @@ cd "$encrypted_path\Baseline\C2\Application Form\/`datadir'"
 	global i=2
 	use "$main_table", clear
 	gen error=${i} if (q2==.a |  q2==.b |  q2==.c |  q2==.) & duplicate_script==0
-	addErr "Missing Value for Gender - Fix for Randomisation"
+	addErr "Missing Value for Gender - Please check script to see if a gender has been entered. Otherwise please review the photo and make a judgment call"
 	
 	global i=3
 	use "$main_table", clear
@@ -515,7 +515,7 @@ addErr "Possible Re-applicant"
 ******************************************
 * 4. Creating output
 ******************************************
-n: di "HELLO MY NAME IS NATHAN"
+
 
 		**************************	
 		**CREATE CHECKING SHEETS**
@@ -537,7 +537,7 @@ n: di "HELLO MY NAME IS NATHAN"
 		save, replace
 
 	}
-n: di "HELLO MY NAME IS NATHAN2"	
+	
 **************************
 **Merge exported and cleaning**
 **************************
@@ -591,7 +591,20 @@ use "$checking_log\\`checksheet'_corrections", clear
 		n di "Cleaning data not found; checks only run on raw data"
 	}
 
+
+
+copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_CHANDA.xlsx", replace
+copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_DINIWE.xlsx", replace
+copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_SARAI.xlsx", replace
+copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_GLORIA.xlsx", replace
+
+********************
+* GENERAL
+********************
 import excel "$checking_log\/${main_table}_CHECKS.xlsx", clear firstrow 
+
+
+
 destring vti, replace
 tostring Comment, replace
 merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", keep(3) nogen  
@@ -606,6 +619,106 @@ merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", ke
 		local pos : list posof "c1script_link" in allvars
 		mata: add_script_link("$checking_log\/${main_table}_CHECKS", "Sheet1", "c1script_link", `pos')
 		
+********************
+* CHANDA
+********************
+
+*copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_CHANDA.xlsx", replace
+import excel "$checking_log\/${main_table}_CHECKS_CHANDA.xlsx", clear firstrow 
+	
+replace script_link=subinstr(script_link,"$scripts","C:\Users\ChandaMalisawa\C4ED\P20204i_EUTF_UGA - 07_All_Scripts\",.)
+replace c1script_link=subinstr(c1script_link,"$c1scripts","C:\Users\ChandaMalisawa\C4ED\P20204i_EUTF_UGA - 08_C1_Scripts\",.)
+
+destring vti, replace
+tostring Comment, replace
+merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", keep(3) nogen  
+
+	sort errDesc
+	sort error id
+		unab allvars : _all
+		local pos : list posof "scto_link" in allvars
+		mata: add_scto_link("$checking_log\/${main_table}_CHECKS_CHANDA", "Sheet1", "scto_link", `pos')
+		local pos : list posof "script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_CHANDA", "Sheet1", "script_link", `pos')
+		local pos : list posof "c1script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_CHANDA", "Sheet1", "c1script_link", `pos')	
+		
+********************
+* DINIWE
+********************
+
+*copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_DINIWE.xlsx", replace
+
+
+import excel "$checking_log\/${main_table}_CHECKS_DINIWE.xlsx", clear firstrow 
+
+replace script_link=subinstr(script_link,"$scripts","C:\Users\DiniweNyirenda\C4ED\P20204i_EUTF_UGA - 07_All_Scripts\",.)
+replace c1script_link=subinstr(c1script_link,"$c1scripts","C:\Users\DiniweNyirenda\C4ED\P20204i_EUTF_UGA - 08_C1_Scripts\",.)
+
+destring vti, replace
+tostring Comment, replace
+merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", keep(3) nogen  
+
+	sort errDesc
+	sort error id
+		unab allvars : _all
+		local pos : list posof "scto_link" in allvars
+		mata: add_scto_link("$checking_log\/${main_table}_CHECKS_DINIWE", "Sheet1", "scto_link", `pos')
+		local pos : list posof "script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_DINIWE", "Sheet1", "script_link", `pos')
+		local pos : list posof "c1script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_DINIWE", "Sheet1", "c1script_link", `pos')	
+		
+********************
+* SARAI
+********************
+
+*copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_SARAI.xlsx", replace
+import excel "$checking_log\/${main_table}_CHECKS_SARAI.xlsx", clear firstrow 
+	
+replace script_link=subinstr(script_link,"$scripts","C:\Users\SaraiSinyoloCatheo\C4ED\P20204i_EUTF_UGA - 07_All_Scripts\",.)
+replace c1script_link=subinstr(c1script_link,"$c1scripts","C:\Users\SaraiSinyoloCatheo\C4ED\P20204i_EUTF_UGA - 08_C1_Scripts\",.)
+
+destring vti, replace
+tostring Comment, replace
+merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", keep(3) nogen  
+
+	sort errDesc
+	sort error id
+		unab allvars : _all
+		local pos : list posof "scto_link" in allvars
+		mata: add_scto_link("$checking_log\/${main_table}_CHECKS_SARAI", "Sheet1", "scto_link", `pos')
+		local pos : list posof "script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_SARAI", "Sheet1", "script_link", `pos')
+		local pos : list posof "c1script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_SARAI", "Sheet1", "c1script_link", `pos')	
+			
+********************
+* GLORIA
+********************
+
+*copy "$checking_log\/${main_table}_CHECKS.xlsx" "$checking_log\/${main_table}_CHECKS_SARAI.xlsx", replace
+import excel "$checking_log\/${main_table}_CHECKS_GLORIA.xlsx", clear firstrow 
+	
+replace script_link=subinstr(script_link,"$scripts","C:\Users\HP\C4ED\P20204i_EUTF_UGA - 07_All_Scripts\",.)
+replace c1script_link=subinstr(c1script_link,"$c1scripts","C:\Users\HP\C4ED\P20204i_EUTF_UGA - 08_C1_Scripts\",.)
+
+destring vti, replace
+tostring Comment, replace
+merge 1:1 id_number error Cohort1_id using "$checking_log\\`checksheet'_all", keep(3) nogen  
+
+	sort errDesc
+	sort error id
+		unab allvars : _all
+		local pos : list posof "scto_link" in allvars
+		mata: add_scto_link("$checking_log\/${main_table}_CHECKS_GLORIA", "Sheet1", "scto_link", `pos')
+		local pos : list posof "script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_GLORIA", "Sheet1", "script_link", `pos')
+		local pos : list posof "c1script_link" in allvars
+		mata: add_script_link("$checking_log\/${main_table}_CHECKS_GLORIA", "Sheet1", "c1script_link", `pos')	
+			
+
+
 n: di "${proj}_${round}_Interview.do Completed"	
 }
 

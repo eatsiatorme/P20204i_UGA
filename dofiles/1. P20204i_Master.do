@@ -127,6 +127,7 @@ cd "$dofiles"
 ****** 1. DATA PROCESSING *********
 *****************************************
 do "1.0. ${proj}_${round}_Decryption.do"
+ex
 cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
