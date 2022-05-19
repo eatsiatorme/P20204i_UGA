@@ -1567,6 +1567,7 @@ replace q6_b = "-555" if id_number == "7S3CBJ"
 replace q6_a = "0777619265" if id_number == "F5Z7FR"
 replace q6_b = "0760491691" if id_number == "Z2I5TL"
 replace q6_b = "-555" if id_number == "F5Z7FR"
+replace q6_b = "-555" if id_number == "2229UM"
 
 
 
