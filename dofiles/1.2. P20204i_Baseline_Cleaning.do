@@ -1568,6 +1568,8 @@ replace q6_a = "0777619265" if id_number == "F5Z7FR"
 replace q6_b = "0760491691" if id_number == "Z2I5TL"
 replace q6_b = "-555" if id_number == "F5Z7FR"
 replace q6_b = "-555" if id_number == "2229UM"
+replace q6_b = "0789656938" if id_number =="DCWDTX"
+replace q6_b = "0776993501" if id_number == "ACVIME"
 
 
 
@@ -1595,6 +1597,10 @@ replace q2 = 2 if id_number == "DRHJ84"
 replace q1 = "KOSOKI JANNET" if id_number == "F5Z7FR"
 replace q4_b = "-555" if id_number =="F5Z7FR"
 replace q6_c = "ARIKU EDWARD" if id_number == "Z2I5TL"
+replace q6_c = "WILFRED BURUGA" if id_number == "DCWDTX"
+replace q6_c = "OBINDU FRANCES" if id_number == "ACVIME"
+
+
 
 
 

@@ -43,13 +43,13 @@ drop firm
 export excel using "$share_CBR/data_entry_progress.xlsx", firstrow(var) replace
 restore
 
-/*
+
 preserve
 keep if firm=="ZMB"
 drop firm
 export excel using "$share_ZMB/data_entry_progress.xlsx", firstrow(var) replace
 restore
-*/
+
 
 
 ********************************************************************************

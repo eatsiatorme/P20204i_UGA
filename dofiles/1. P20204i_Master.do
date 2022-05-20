@@ -113,7 +113,7 @@ global errorfile "$ONEDRIVE\$folder\04_Field Work\06_Checks\error datasets"
 global checking_log "$ONEDRIVE\$folder\04_Field Work\06_Checks\checking_log"
 local checksheet "${main_table}_CHECKS"
 *global scripts "C:\Users\ElikplimAtsiatorme\C4ED\P20204i_EUTF_UGA - Dokumente\04_Field Work\07_All_Scripts\"
-
+ 
 
 cd "$dofiles"
 
@@ -127,7 +127,7 @@ cd "$dofiles"
 ****** 1. DATA PROCESSING *********
 *****************************************
 do "1.0. ${proj}_${round}_Decryption.do"
-ex
+
 cd "$dofiles"
 do "1.1. ${proj}_${round}_Export.do"
 cd "$dofiles"
