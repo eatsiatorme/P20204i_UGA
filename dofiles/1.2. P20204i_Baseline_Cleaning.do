@@ -1577,6 +1577,7 @@ replace q6_a = "787008254" if id_number == "2229UM"
 replace q6_b = "0789656938" if id_number == "DCWDTX"
 replace q6_e = "0789656938" if id_number == "DCWDTX"
 replace q6_b = "0776993501" if id_number == "ACVIME"
+replace q6_b = "0773498059" if id_number == "9SGVHP"
 
 
 
@@ -1609,6 +1610,8 @@ replace q6_c = "DRALEMA JOEL" if id_number == "E9VCC7"
 replace q6_c = "WILFRED BURUGA" if id_number == "DCWDTX"
 replace q6_d = "Husband" if id_number == "DCWDTX"
 replace q6_c = "OBINDU FRANCES" if id_number == "ACVIME"
+replace q6_c = "ANGUYO SUNDAY" if id_number == "9SGVHP"
+
 
 
 
