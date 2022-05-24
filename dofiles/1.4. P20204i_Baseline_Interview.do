@@ -403,7 +403,8 @@ save `master_data'
 * Cycle 1 Applications (Using)
 
 use "H:\Baseline\C1\Application Form\cleaning\Rise Baseline Form.dta", clear
-
+merge 1:1 id_number using "H:\Baseline\C1\Application Form\Randomized_data\Merged_lists.dta", keepusing(TSTT FLES) nogen
+keep if TSTT==0
 * q1: What is your name? (string)
 * vti: Selected VTI (categorical)
 * q2: Gender (categorical)
