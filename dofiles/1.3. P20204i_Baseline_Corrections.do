@@ -70,6 +70,24 @@ replace q4_a=2 if id_number == "994NNX"
 ********************************************************************************
 * Done by checking against script
 replace consent = 1 if id_number == "3ZN6LB"
+replace no_consent=1 if id_number=="6TRYJ3"
+replace no_consent=1 if id_number=="DUCDHK"
+replace no_consent=1 if id_number== "25Q3NF"
+replace no_consent=1 if id_number== "3ZN6LB"
+replace no_consent=1 if id_number== "77W967"
+replace no_consent=1 if id_number== "7WO4TY"
+replace no_consent=1 if id_number== "B8FL5J"
+replace no_consent=1 if id_number== "DTM0TP"
+replace no_consent=1 if id_number== "EHQ410"
+replace no_consent=1 if id_number== "H5J35O"
+replace no_consent=1 if id_number== "HKKBGB"
+replace no_consent=1 if id_number== "I136G9"
+replace no_consent=1 if id_number== "LKWTMZ"
+replace no_consent=1 if id_number== "MBHAG3"
+replace no_consent=1 if id_number== "TPY720"
+replace no_consent=1 if id_number== "V4D9RT"
+replace no_consent=1 if id_number== "YXLZ8Q"
+
 
 
 
@@ -78,7 +96,8 @@ replace consent = 1 if id_number == "3ZN6LB"
 * DUPLICATE SCRIPTS
 ********************************************************************************
 * Done by checking against scripts based on similar names
-
+replace duplicate_script = 1 if id_number=="EWG4KS"
+replace form_number = 454 if id_number == "9K2H4R"
 
 
 // Making the duplicate scripts "empty" - so not included in any dashboards for numbers of women etc.
@@ -306,8 +325,11 @@ label var current_age "Current Age (In years)"
 
 
 ********************************************************************************
-* ANY CONSENT FIXING FOR OMUGO
+* Removing reapplicants who are in the control group from Cohort 1 to avoid contamination before randomisation
 ********************************************************************************	
+drop if id_number == "CW8B67"
+drop if id_number == "KEV1MD"
+drop if id_number == "KUP6VC"
 
 ********************************************************************************
 * SAVE CORRECTED DATA
