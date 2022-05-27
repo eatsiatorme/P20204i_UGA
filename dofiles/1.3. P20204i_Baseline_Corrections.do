@@ -39,6 +39,10 @@ replace q2=2 if id_number == "VAFSDB"
 replace q2=2 if id_number == "XHFEOV"
 replace q2=1 if id_number == "YIWYME"
 replace q2=1 if id_number == "ZF8UA9"
+replace q2=2 if id_number == "A6ZTLD"
+replace q2=2 if id_number == "CVIG1V"
+replace q2=1 if id_number == "J8T7TI"
+replace q2=2 if id_number == "TII5SD"
 ********************************************************************************
 * CORRECTING REFUGEE STATUS
 ********************************************************************************
@@ -54,6 +58,7 @@ replace q4_a=2 if id_number == "QT5VP1"
 replace q4_a=2 if id_number == "SGG13R"
 replace q4_a=2 if id_number == "VAFSDB"
 replace q4_a=2 if id_number == "ZLLA1O"
+replace q4_a=2 if id_number == "994NNX"
 
 
 
@@ -64,6 +69,26 @@ replace q4_a=2 if id_number == "ZLLA1O"
 * CORRECTING CONSENT
 ********************************************************************************
 * Done by checking against script
+replace consent = 1 if id_number == "3ZN6LB"
+replace no_consent=1 if id_number=="6TRYJ3"
+replace no_consent=1 if id_number=="DUCDHK"
+replace no_consent=1 if id_number== "25Q3NF"
+replace no_consent=1 if id_number== "3ZN6LB"
+replace no_consent=1 if id_number== "77W967"
+replace no_consent=1 if id_number== "7WO4TY"
+replace no_consent=1 if id_number== "B8FL5J"
+replace no_consent=1 if id_number== "DTM0TP"
+replace no_consent=1 if id_number== "EHQ410"
+replace no_consent=1 if id_number== "H5J35O"
+replace no_consent=1 if id_number== "HKKBGB"
+replace no_consent=1 if id_number== "I136G9"
+replace no_consent=1 if id_number== "LKWTMZ"
+replace no_consent=1 if id_number== "MBHAG3"
+replace no_consent=1 if id_number== "TPY720"
+replace no_consent=1 if id_number== "V4D9RT"
+replace no_consent=1 if id_number== "YXLZ8Q"
+
+
 
 
 
@@ -71,7 +96,8 @@ replace q4_a=2 if id_number == "ZLLA1O"
 * DUPLICATE SCRIPTS
 ********************************************************************************
 * Done by checking against scripts based on similar names
-
+replace duplicate_script = 1 if id_number=="EWG4KS"
+replace form_number = 454 if id_number == "9K2H4R"
 
 
 // Making the duplicate scripts "empty" - so not included in any dashboards for numbers of women etc.
@@ -176,7 +202,23 @@ replace above_18 = 1  if id_number=="K023NI"
 replace above_18 = 1  if id_number=="TE6VFQ"	 
 replace above_18 = 1  if id_number=="U3J6WZ"
 replace above_18 = 1  if id_number=="VAFSDB"	 
-replace above_18 = 1  if id_number=="VRWPDW"
+replace above_18 = 1  if id_number=="VRWPDW" 
+replace above_18 = 1 if id_number == "0B2ECL"
+replace above_18 = 1 if id_number == "18G3O7"
+replace above_18 = 1 if id_number == "3WYMQA"
+replace above_18 = 1 if id_number == "63PRZG"
+replace above_18 = 1 if id_number == "7WO4TY"
+replace above_18 = 1 if id_number == "CK8EFO"
+replace above_18 = 1 if id_number == "FHSPMY"
+replace above_18 = 1 if id_number == "JFB55U"
+replace above_18 = 1 if id_number == "KVHIPG"
+replace above_18 = 1 if id_number == "L5Q5MP"
+replace above_18 = 1 if id_number == "QNIUPZ"
+replace above_18 = 1 if id_number == "S16SIF"
+replace above_18 = 1 if id_number == "YA7D6C"
+replace above_18 = 1 if id_number == "Z10AD3"
+replace above_18 = 1 if id_number == "ZVWM0Q"
+
 
 
 * Done by checking against script and finding correct age
@@ -190,7 +232,34 @@ replace age_correct="20/3/2003"  if id_number=="TE6VFQ"
 replace age_correct="06/11/2003"  if id_number=="U3J6WZ"
 replace age_correct="1/3/1998"  if id_number=="VAFSDB"	 
 replace age_correct="24/01/2002"  if id_number=="VRWPDW"
-	 
+replace age_correct = "01/01/1997" if id_number== "0B2ECL"
+replace age_correct = "18/06/2002" if id_number == "3WYMQA"
+replace age_correct = "08/04/2004" if id_number== "CK8EFO"
+replace age_correct = "09/11/2002" if id_number== "FHSPMY"
+replace age_correct = "01/01/1996" if id_number== "KVHIPG"
+replace age_correct = "02/02/2002" if id_number == "S16SIF"
+replace age_correct = "01/01/2000" if id_number == "YA7D6C"
+
+
+
+
+***Age validation: 
+*****************************************************************************
+*These trainees need to have their age validated because they did not fill out the age section of the form. If they are beloe the age of 18 they must not be allowed to join the training.
+******************************************************************************
+replace validate_age = 1 if id_number == "18G3O7"
+replace validate_age = 1 if id_number == "63PRZG"
+replace validate_age = 1 if id_number == "7WO4TY"
+replace validate_age = 1 if id_number == "JFB55U"
+replace validate_age = 1 if id_number == "L5Q5MP"
+replace validate_age = 1 if id_number == "QNIUPZ"
+replace validate_age = 1 if id_number == "Z10AD3"
+replace validate_age = 1 if id_number == "Z10AD3"
+
+
+
+
+ 
 	 
 	 
 	 
@@ -256,8 +325,11 @@ label var current_age "Current Age (In years)"
 
 
 ********************************************************************************
-* ANY CONSENT FIXING FOR OMUGO
+* Removing reapplicants who are in the control group from Cohort 1 to avoid contamination before randomisation
 ********************************************************************************	
+drop if id_number == "CW8B67"
+drop if id_number == "KEV1MD"
+drop if id_number == "KUP6VC"
 
 ********************************************************************************
 * SAVE CORRECTED DATA

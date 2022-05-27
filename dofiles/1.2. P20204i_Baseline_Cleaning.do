@@ -1620,7 +1620,7 @@ replace q6_c = "KHOR DOOP" if id_number == "LRU03C"
 replace q6_d = "HUSBAND" if id_number == "LRU03C"
 
 
-
+gen validate_age=0
 
 
 
