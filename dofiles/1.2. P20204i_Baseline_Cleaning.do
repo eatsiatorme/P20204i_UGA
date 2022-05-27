@@ -1581,6 +1581,8 @@ replace q6_b = "0773498059" if id_number == "9SGVHP"
 replace q6_b = "-555" if id_number == "W1BFBZ"
 replace q6_b = "0770829539" if id_number == "WSMQLH"
 replace q6_b = "-555" if id_number == "LRU03C"
+replace q6_b = "-555" if id_number == "33Z28A"
+
 
 
 
@@ -1618,7 +1620,7 @@ replace q6_c = "ANGUYO SUNDAY" if id_number == "9SGVHP"
 replace q6_c = "AFUSA MANENO" if id_number == "WSMQLH"
 replace q6_c = "KHOR DOOP" if id_number == "LRU03C"
 replace q6_d = "HUSBAND" if id_number == "LRU03C"
-
+replace q6_c = "PARIYO THOMSON" if id_number == "33Z28A"
 
 gen validate_age=0
 
