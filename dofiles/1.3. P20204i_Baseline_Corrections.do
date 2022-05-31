@@ -43,6 +43,19 @@ replace q2=2 if id_number == "A6ZTLD"
 replace q2=2 if id_number == "CVIG1V"
 replace q2=1 if id_number == "J8T7TI"
 replace q2=2 if id_number == "TII5SD"
+replace q2=2 if id_number == "DHLKNM"
+replace q2=2 if id_number == "HQW6YT"
+replace q2=1 if id_number == "QPXBTC"
+
+********************************************************************************
+* CORRECTING duplicate form_number
+replace form_number = 527 if id_number == "J7BYJD"
+replace form_number = 241 if id_number == "SIUL8K"
+replace form_number = 121 if id_number == "YJ3R2J"
+
+*******************************************************************************
+********************************************************************************
+
 ********************************************************************************
 * CORRECTING REFUGEE STATUS
 ********************************************************************************
@@ -52,6 +65,12 @@ replace q4_a=1 if id_number == "22O2R5"
 replace q4_a=1 if id_number == "SBVDIP"
 replace q4_a=1 if id_number == "TL1YZN"
 replace q4_a=1 if id_number == "VM6OS6"
+replace q4_a=1 if id_number == "GZEE6V"
+replace q4_a=1 if id_number == "IXF4A8"
+replace q4_a=1 if id_number == "UGUMSD"
+replace q4_a=1 if id_number == "VRY6FX"
+replace q4_a=1 if id_number == "VRY6FX"
+
 
 replace q4_a=2 if id_number == "9D3LQB"
 replace q4_a=2 if id_number == "QT5VP1"
@@ -59,6 +78,9 @@ replace q4_a=2 if id_number == "SGG13R"
 replace q4_a=2 if id_number == "VAFSDB"
 replace q4_a=2 if id_number == "ZLLA1O"
 replace q4_a=2 if id_number == "994NNX"
+replace q4_a=2 if id_number== "057FOO"
+
+
 
 
 
@@ -70,6 +92,7 @@ replace q4_a=2 if id_number == "994NNX"
 ********************************************************************************
 * Done by checking against script
 replace consent = 1 if id_number == "3ZN6LB"
+
 replace no_consent=1 if id_number=="6TRYJ3"
 replace no_consent=1 if id_number=="DUCDHK"
 replace no_consent=1 if id_number== "25Q3NF"
@@ -88,6 +111,49 @@ replace no_consent=1 if id_number== "TPY720"
 replace no_consent=1 if id_number== "V4D9RT"
 replace no_consent=1 if id_number== "YXLZ8Q"
 
+replace no_consent=1 if id_number== "121ZC2"
+replace no_consent=1 if id_number== "1GYR8Y"
+replace no_consent=1 if id_number== "2OZGM7"
+replace no_consent=1 if id_number== "2OZGM7"
+replace no_consent=1 if id_number== "515L4Q"
+replace no_consent=1 if id_number== "701448"
+replace no_consent=1 if id_number== "7GML8O"
+replace no_consent=1 if id_number== "9WHB99"
+replace no_consent=1 if id_number== "BEB4DI"
+replace no_consent=1 if id_number== "DRC0XD"
+replace no_consent=1 if id_number== "DS1IBV"
+replace no_consent=1 if id_number== "FNJSER"
+replace no_consent=1 if id_number== "HAFVDY"
+replace no_consent=1 if id_number== "IXF4A8"
+replace no_consent=1 if id_number== "KUWPQT"
+replace no_consent=1 if id_number== "KY0CNI"
+replace no_consent=1 if id_number== "OUW01Q"
+replace no_consent=1 if id_number== "PKKJ2P"
+replace no_consent=1 if id_number== "QA9MU5"
+replace no_consent=1 if id_number== "RJVAAA"
+replace no_consent=1 if id_number== "UZRVWP"
+replace no_consent=1 if id_number== "ZZH997"
+replace no_consent=1 if id_number== "GU65AY"
+replace no_consent=1 if id_number== "HVNH67"
+replace no_consent=1 if id_number== "ZEO72B"
+
+
+
+
+replace consent=1 if id_number== "2SLFIR"
+replace consent=1 if id_number== "449L48"
+replace consent=1 if id_number== "NMAYYS"
+replace consent=1 if id_number== "SIUL8K"
+replace consent=1 if id_number== "ZB52IS"
+replace consent=1 if id_number== "RWMLBR"
+
+
+
+
+
+
+
+
 
 
 
@@ -98,6 +164,9 @@ replace no_consent=1 if id_number== "YXLZ8Q"
 * Done by checking against scripts based on similar names
 replace duplicate_script = 1 if id_number=="EWG4KS"
 replace form_number = 454 if id_number == "9K2H4R"
+replace duplicate_script = 1 if id_number == "V63BNU"
+replace duplicate_script = 1 if id_number == "WY3QB0"
+
 
 
 // Making the duplicate scripts "empty" - so not included in any dashboards for numbers of women etc.
@@ -218,6 +287,31 @@ replace above_18 = 1 if id_number == "S16SIF"
 replace above_18 = 1 if id_number == "YA7D6C"
 replace above_18 = 1 if id_number == "Z10AD3"
 replace above_18 = 1 if id_number == "ZVWM0Q"
+replace above_18 = 1 if id_number == "9BUQ5Y"
+replace above_18 = 1 if id_number == "I78DZ6"
+replace above_18 = 1 if id_number == "KTT42M"
+replace above_18 = 1 if id_number == "N1N5Z5"
+replace above_18 = 1 if id_number == "O0MZ8J"
+replace above_18 = 1 if id_number == "OGU32Q"
+replace above_18 = 1 if id_number == "PGPCWH"
+replace above_18 = 1 if id_number == "T273MV"
+replace above_18 = 1 if id_number == "XAS581"
+replace above_18 = 1 if id_number == "UF7GYK"
+replace above_18 = 1 if id_number == "XWL3JD"
+
+
+
+
+
+
+
+
+replace above_18 = 0 if id_number == "ANM6JA"
+replace above_18 = 0 if id_number == "FDR76L"
+replace above_18 = 0 if id_number == "G1EVZT"
+replace above_18 = 0 if id_number == "GP2L2N"
+
+
 
 
 
@@ -239,6 +333,15 @@ replace age_correct = "09/11/2002" if id_number== "FHSPMY"
 replace age_correct = "01/01/1996" if id_number== "KVHIPG"
 replace age_correct = "02/02/2002" if id_number == "S16SIF"
 replace age_correct = "01/01/2000" if id_number == "YA7D6C"
+replace age_correct = "01/03/2003" if id_number == "9BUQ5Y"
+replace age_correct = "14/02/1998" if id_number == "FDR76L"
+replace age_correct = "03/02/2000" if id_number == "I78DZ6"
+replace age_correct = "03/04/2004" if id_number == "KTT42M"
+replace age_correct = "04/09/2002" if id_number == "N1N5Z5"
+replace age_correct = "08/05/1993" if id_number == "OGU32Q"
+replace age_correct = "01/01/2003" if id_number == "T273MV"
+replace age_correct = "01/05/1999" if id_number == "XAS581"
+
 
 
 
@@ -255,6 +358,15 @@ replace validate_age = 1 if id_number == "L5Q5MP"
 replace validate_age = 1 if id_number == "QNIUPZ"
 replace validate_age = 1 if id_number == "Z10AD3"
 replace validate_age = 1 if id_number == "Z10AD3"
+
+replace validate_age = 1 if id_number == "G1EVZT"
+replace validate_age = 1 if id_number == "GP2L2N"
+replace validate_age = 1 if id_number == "O0MZ8J"
+replace validate_age = 1 if id_number == "PGPCWH"
+replace validate_age = 1 if id_number == "UF7GYK"
+replace validate_age = 1 if id_number == "XWL3JD"
+
+
 
 
 
@@ -330,6 +442,13 @@ label var current_age "Current Age (In years)"
 drop if id_number == "CW8B67"
 drop if id_number == "KEV1MD"
 drop if id_number == "KUP6VC"
+
+drop if id_number == "IXZ2JV"
+drop if id_number == "BY3V2O"
+drop if id_number == "6EMER8"
+drop if id_number == "8ADA6K"
+drop if id_number == "WPAXWL"
+
 
 ********************************************************************************
 * SAVE CORRECTED DATA
