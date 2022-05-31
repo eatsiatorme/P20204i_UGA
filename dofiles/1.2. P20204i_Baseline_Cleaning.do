@@ -47,6 +47,8 @@ q4_a
 destring age duration form_number , replace // Often SurveyCTO outputs variables as strings that are more intuitive as numeric
 gen duration_m = duration/60 // Phone call duration in 60 mins
 
+replace q1 = "WANI EMMANUEL" if id_number == "SJ5HN4"
+replace q1 = "SHIDA BRIGET" if id_number == "NA412M"
 /*
 ********************************************************************************
 * FIXING NAMES PROVIDED BY CBR
@@ -1582,6 +1584,13 @@ replace q6_b = "-555" if id_number == "W1BFBZ"
 replace q6_b = "0770829539" if id_number == "WSMQLH"
 replace q6_b = "-555" if id_number == "LRU03C"
 replace q6_b = "-555" if id_number == "33Z28A"
+replace q6_b = "0760315035" if id_number == "9X9DSA"
+replace q6_b = "555" if id_number == "P4XQ4W"
+replace q6_b = "555" if id_number == "HRCL7P"
+replace q6_b = "555" if id_number == "C3SVX4"
+replace q6_b = "0783432062" if id_number == "YGNMJB"
+
+
 
 
 
@@ -1621,6 +1630,23 @@ replace q6_c = "AFUSA MANENO" if id_number == "WSMQLH"
 replace q6_c = "KHOR DOOP" if id_number == "LRU03C"
 replace q6_d = "HUSBAND" if id_number == "LRU03C"
 replace q6_c = "PARIYO THOMSON" if id_number == "33Z28A"
+replace q6_c = "ADRIKO KENNEDY" if id_number == "9X9DSA"
+replace q6_d = "Brother" if id_number == "9X9DSA"
+replace q6_c =  "Ojoatre Bosco" if id_number == "P4XQ4W"
+replace q6_c = "Anira Gaspee" if id_number == "HRCL7P"
+replace q6_c = "Stella Sina" if id_number == "C3SVX4"
+replace q6_d = "Sister" if id_number == "C3SVX4"
+replace q6_e = "0785269942" if id_number == "C3SVX4"
+replace q6_c = "Angueza Benzamen" if id_number == "YGNMJB"
+replace q6_d = "Brother" if id_number == "YGNMJB"
+
+
+replace q1 = "WANI EMMANUEL" if id_number == "SJ5HN4"
+replace q1 = "SHIDA BRIGET" if id_number == "NA412M"
+
+
+
+
 
 gen validate_age=0
 
