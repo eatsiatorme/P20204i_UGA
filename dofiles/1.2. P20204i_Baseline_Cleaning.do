@@ -80,6 +80,9 @@ replace q1="AWATIYO SIMONI" if id_number=="I5X48N"
 replace q1="BENSON LOKE EDUKU" if id_number=="W0MKXB"
 replace q1="ASKER SUNDAY" if id_number=="WZFUZ0"
 */
+replace q1 = "JOHN DAIA" if id_number == "7L5SFK"
+replace q1 = "THOMAS RIEK KONY" if id_number == "R74EQ2"
+
 ********************************************************************************
 * TIDYING NAMES
 ********************************************************************************
