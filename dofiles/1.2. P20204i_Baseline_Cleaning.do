@@ -49,6 +49,14 @@ gen duration_m = duration/60 // Phone call duration in 60 mins
 
 replace q1 = "WANI EMMANUEL" if id_number == "SJ5HN4"
 replace q1 = "SHIDA BRIGET" if id_number == "NA412M"
+replace q1 = "CWINYA MORISH" if id_number== "BYUD1C"
+replace q1 = "NO NAME" if id_number == "NGJS5E"
+replace q1 = "MUWIN OLIVER" if id_number == "WM2EQ6"
+
+
+
+
+
 /*
 ********************************************************************************
 * FIXING NAMES PROVIDED BY CBR
