@@ -46,12 +46,13 @@ replace q2=2 if id_number == "TII5SD"
 replace q2=2 if id_number == "DHLKNM"
 replace q2=2 if id_number == "HQW6YT"
 replace q2=1 if id_number == "QPXBTC"
-
+replace q2=2 if id_number == "M8FKAL"
 ********************************************************************************
 * CORRECTING duplicate form_number
 replace form_number = 527 if id_number == "J7BYJD"
 replace form_number = 241 if id_number == "SIUL8K"
 replace form_number = 121 if id_number == "YJ3R2J"
+
 
 *******************************************************************************
 ********************************************************************************
@@ -136,6 +137,12 @@ replace no_consent=1 if id_number== "ZZH997"
 replace no_consent=1 if id_number== "GU65AY"
 replace no_consent=1 if id_number== "HVNH67"
 replace no_consent=1 if id_number== "ZEO72B"
+replace no_consent=1 if id_number== "5ASXX8"
+replace no_consent=1 if id_number== "7V36NZ"
+replace no_consent=1 if id_number== "L15E0X"
+replace no_consent=1 if id_number== "YAI623"
+
+
 
 
 
@@ -146,6 +153,7 @@ replace consent=1 if id_number== "NMAYYS"
 replace consent=1 if id_number== "SIUL8K"
 replace consent=1 if id_number== "ZB52IS"
 replace consent=1 if id_number== "RWMLBR"
+replace consent=1 if id_number== "O8VBOB"
 
 
 
@@ -166,6 +174,7 @@ replace duplicate_script = 1 if id_number=="EWG4KS"
 replace form_number = 454 if id_number == "9K2H4R"
 replace duplicate_script = 1 if id_number == "V63BNU"
 replace duplicate_script = 1 if id_number == "WY3QB0"
+replace duplicate_script = 1 if id_number == "N7NY01"
 
 
 
@@ -299,6 +308,15 @@ replace above_18 = 1 if id_number == "XAS581"
 replace above_18 = 1 if id_number == "UF7GYK"
 replace above_18 = 1 if id_number == "XWL3JD"
 
+replace above_18 = 1 if id_number == "4ZA1HN"
+replace above_18 = 1 if id_number == "7A9X2D"
+replace above_18 = 1 if id_number == "D5JJL3"
+replace above_18 = 1 if id_number == "EEKCHU"
+replace above_18 = 1 if id_number == "KNJ5FC"
+replace above_18 = 1 if id_number == "PRDWQS"
+replace above_18 = 1 if id_number == "V8I2IC"
+replace above_18 = 1 if id_number == "YCEWYZ"
+replace above_18 = 1 if id_number == "ZZ3BLB"
 
 
 
@@ -341,6 +359,11 @@ replace age_correct = "04/09/2002" if id_number == "N1N5Z5"
 replace age_correct = "08/05/1993" if id_number == "OGU32Q"
 replace age_correct = "01/01/2003" if id_number == "T273MV"
 replace age_correct = "01/05/1999" if id_number == "XAS581"
+replace age_correct = "20/10/2000" if id_number == "4ZA1HN"
+replace age_correct = "04/08/2000" if id_number == "D5JJL3"
+replace age_correct = "08/07/1996" if id_number ==  "EEKCHU"
+replace age_correct = "08/10/1998"  if id_number == "KNJ5FC"
+
 
 
 
@@ -365,6 +388,12 @@ replace validate_age = 1 if id_number == "O0MZ8J"
 replace validate_age = 1 if id_number == "PGPCWH"
 replace validate_age = 1 if id_number == "UF7GYK"
 replace validate_age = 1 if id_number == "XWL3JD"
+
+replace validate_age = 1 if id_number == "7A9X2D"
+replace validate_age = 1 if id_number == "PRDWQS"
+replace validate_age = 1 if id_number == "V8I2IC"
+replace validate_age = 1 if id_number == "YCEWYZ"
+replace validate_age = 1 if id_number == "ZZ3BLB"
 
 
 
@@ -448,6 +477,13 @@ drop if id_number == "BY3V2O"
 drop if id_number == "6EMER8"
 drop if id_number == "8ADA6K"
 drop if id_number == "WPAXWL"
+
+drop if id_number == "1XAYLD"
+drop if id_number == "A66GK8"
+drop if id_number == "HM2I3X"
+drop if id_number == "MU66TE"
+drop if id_number == "VYHX18"
+
 
 
 ********************************************************************************

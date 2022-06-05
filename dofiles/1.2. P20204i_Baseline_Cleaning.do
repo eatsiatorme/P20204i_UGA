@@ -49,6 +49,14 @@ gen duration_m = duration/60 // Phone call duration in 60 mins
 
 replace q1 = "WANI EMMANUEL" if id_number == "SJ5HN4"
 replace q1 = "SHIDA BRIGET" if id_number == "NA412M"
+replace q1 = "CWINYA MORISH" if id_number== "BYUD1C"
+replace q1 = "NO NAME" if id_number == "NGJS5E"
+replace q1 = "MUWIN OLIVER" if id_number == "WM2EQ6"
+
+
+
+
+
 /*
 ********************************************************************************
 * FIXING NAMES PROVIDED BY CBR
@@ -1592,6 +1600,9 @@ replace q6_b = "555" if id_number == "P4XQ4W"
 replace q6_b = "555" if id_number == "HRCL7P"
 replace q6_b = "555" if id_number == "C3SVX4"
 replace q6_b = "0783432062" if id_number == "YGNMJB"
+replace q6_a = "0761392552" if id_number == "IFLEU9"
+
+ 
 
 
 
@@ -1642,6 +1653,11 @@ replace q6_d = "Sister" if id_number == "C3SVX4"
 replace q6_e = "0785269942" if id_number == "C3SVX4"
 replace q6_c = "Angueza Benzamen" if id_number == "YGNMJB"
 replace q6_d = "Brother" if id_number == "YGNMJB"
+replace q6_c = "Etole Felix" if id_number == "IFLEU9"
+replace q6_b = "0780955811" if id_number == "4KJQFS"
+replace q6_c = "Asindua Ronald" if id_number == "4KJQFS"
+
+
 
 
 replace q1 = "WANI EMMANUEL" if id_number == "SJ5HN4"
