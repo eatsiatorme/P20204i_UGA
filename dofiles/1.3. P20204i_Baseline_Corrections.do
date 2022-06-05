@@ -52,7 +52,7 @@ replace q2=2 if id_number == "M8FKAL"
 replace form_number = 527 if id_number == "J7BYJD"
 replace form_number = 241 if id_number == "SIUL8K"
 replace form_number = 121 if id_number == "YJ3R2J"
-drop if form_number == "N7NY01"
+
 
 *******************************************************************************
 ********************************************************************************
@@ -174,6 +174,7 @@ replace duplicate_script = 1 if id_number=="EWG4KS"
 replace form_number = 454 if id_number == "9K2H4R"
 replace duplicate_script = 1 if id_number == "V63BNU"
 replace duplicate_script = 1 if id_number == "WY3QB0"
+replace duplicate_script = 1 if id_number == "N7NY01"
 
 
 
