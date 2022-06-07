@@ -156,7 +156,10 @@ replace consent=1 if id_number== "RWMLBR"
 replace consent=1 if id_number== "O8VBOB"
 
 
-
+*******************************************************************************
+* Incorrect VTI
+*******************************************************************************
+replace vti = 2 if id_number == "PT4CYF"
 
 
 
